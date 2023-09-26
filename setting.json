@@ -1,0 +1,8 @@
+{
+  "baseUrl": "",
+  "socketUrl": "",
+  "socket": false,
+  "tabBar": true,
+  "drawer": true,
+  "auth": false
+}
