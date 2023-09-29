@@ -2,17 +2,21 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import React from 'react';
 import { screens } from '../../screens';
 import TabScreen from '../tab/Tab';
+import CustomDrawer from './CustomDrawer';
 
 const Drawer = createDrawerNavigator();
 
 export default function DrawerScreen() {
   return (
-    <Drawer.Navigator screenOptions={{ headerShown: false,
-      drawerActiveBackgroundColor: screens.drawer?.activeBg,
-      drawerInactiveBackgroundColor: screens.drawer?.inActiveBg,
-      drawerActiveTintColor: screens.drawer?.activeIcon,
-      drawerInactiveTintColor: screens.drawer?.inActiveIcon,
-    }}
+    <Drawer.Navigator
+      screenOptions={{ headerShown: false,
+        drawerActiveBackgroundColor: screens.drawer?.activeBg,
+        drawerInactiveBackgroundColor: screens.drawer?.inActiveBg,
+        drawerActiveTintColor: screens.drawer?.activeIcon,
+        drawerInactiveTintColor: screens.drawer?.inActiveIcon,
+
+      }}
+      drawerContent={(props) => <CustomDrawer {...props} />}
     >
       <Drawer.Screen
         options={{ drawerIcon: screens.drawer?.mainIcon, drawerLabel: screens.drawer?.mainLabel }}
