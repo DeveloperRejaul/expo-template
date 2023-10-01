@@ -1,8 +1,16 @@
 import { useFonts } from 'expo-font';
-import innerBlack from '../assets/fonts/YoungSerif-Regular.ttf';
+import * as SplashScreen from 'expo-splash-screen';
+import { useCallback } from 'react';
+import { customFonts } from '../constant/fonts';
+
+SplashScreen.preventAutoHideAsync();
 
 export default () => {
-  useFonts({
-    'Inter-Black': innerBlack,
-  });
+  const [isLoaded] = useFonts(customFonts);
+
+  const handleLayout = useCallback(() => {
+    if (isLoaded)SplashScreen.hideAsync();
+  }, [isLoaded]);
+
+  return { isLoaded, handleLayout };
 };
